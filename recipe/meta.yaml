@@ -1,5 +1,5 @@
 {% set name = "openfast" %}
-{% set version = "3.0.0" %}
+{% set version = "3.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -16,7 +16,7 @@ source:
   git_depth: 1 # (Defaults to -1/not shallow)
 
 build:
-  number: 18
+  number: 0
   skip: true  # [win]
 
 requirements:
