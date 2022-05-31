@@ -5,18 +5,18 @@ package:
   name: {{ name|lower }}
   version: {{ version }}
 
-# source:
-#   url: https://github.com/openfast/openfast/archive/v{{ version }}.tar.gz
-#   sha256: 2b368e8c8211ebed03e87fb3e89ef733b7e4be4848834da4034f8419d618446c
-#   # Download the tar-ball and do `openssl sha256 file.tar.gz` to update
-
 source:
-  git_url: https://github.com/openfast/openfast.git
-  git_rev: v{{ version }}
-  git_depth: 1 # (Defaults to -1/not shallow)
+  url: https://github.com/openfast/openfast/archive/v{{ version }}.tar.gz
+  sha256: db633a908def86716fd590e3b8761d6ee87bcebd391bb4213476c410d966f1c6
+  # Download the tar-ball and do `openssl sha256 file.tar.gz` to update
+
+# source:
+#   git_url: https://github.com/openfast/openfast.git
+#   git_rev: v{{ version }}
+#   git_depth: 1 # (Defaults to -1/not shallow)
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -28,6 +28,8 @@ requirements:
     - {{ compiler('m2w64_cxx') }}  # [win]
     - make
     - cmake
+    - llvm-openmp  # [osx]
+    - libgomp      # [linux]
   host:
     - libblas
     - liblapack
@@ -35,6 +37,11 @@ requirements:
 test:
   commands:
     - openfast -h
+    - FAST.Farm -h
+    - aerodyn_driver -h
+    - hydrodyn_driver -h
+    - moordyn_driver -h
+    - servodyn_driver -h
 
 about:
   home: https://github.com/openfast/openfast
