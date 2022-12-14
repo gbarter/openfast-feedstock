@@ -17,22 +17,22 @@ source:
 
 build:
   number: 0
-  skip: true  # [win]
+  skip: true  # [win and vc<14]
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}
-    - {{ compiler('m2w64_c') }}  # [win]
-    - {{ compiler('m2w64_cxx') }}  # [win]
-    - make
+    - make         # [not win]
+    - ninja        # [win]
     - cmake
-    - llvm-openmp  # [osx]
+    - llvm-openmp  # [osx or win]
     - libgomp      # [linux]
   host:
     - libblas
     - liblapack
+    - libpgmath   # [win]
 
 test:
   commands:
