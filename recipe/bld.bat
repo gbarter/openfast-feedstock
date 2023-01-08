@@ -21,9 +21,9 @@ cmake ^
     -DCMAKE_C_COMPILER=gcc                ^
     -DCMAKE_CXX_COMPILER=g++              ^
     -DCMAKE_FC_COMPILER=gfortran          
-#    -DCMAKE_LINKER=lld-link               ^
-#    -DCMAKE_NM=llvm-nm
-#    -DBUILD_OPENFAST_CPP_API=ON
+REM    -DCMAKE_LINKER=lld-link               ^
+REM    -DCMAKE_NM=llvm-nm
+REM    -DBUILD_OPENFAST_CPP_API=ON
 
 if errorlevel 1 exit /b 1
 
