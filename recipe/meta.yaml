@@ -17,7 +17,6 @@ source:
 
 build:
   number: 1
-#  skip: true  # [win and vc<14]
 
 requirements:
   build:
@@ -29,7 +28,8 @@ requirements:
     - llvm-openmp  # [osx]
     - libgomp      # [linux]
   host:
-    - openblas
+#    - openblas
+    - liblapack
     - libblas
     - libpgmath   # [win]
 

@@ -15,6 +15,8 @@ cmake ^
     -G "MinGW Makefiles" ^
     -DCMAKE_MAKE_PROGRAM=make ^
     -DCMAKE_BUILD_TYPE=RelWithDebInfo ^
+    -DCMAKE_FIND_LIBRARY_SUFFIXES=".a" ^
+    -DBUILD_SHARED_LIBS=OFF ^
     -DDOUBLE_PRECISION=OFF ^
     -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%" ^
     -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
@@ -24,20 +26,20 @@ cmake ^
     -DCMAKE_CXX_COMPILER="C:/ProgramData/chocolatey/bin/g++.exe" ^
     -DCMAKE_Fortran_COMPILER="C:/ProgramData/chocolatey/bin/gfortran.exe"
 
-REM This config works but runs out of memory during with -j CPU
+REM This config works with mingw through choco (v8 on Azure, v12 locally)
 REM    -G "MinGW Makefiles" ^
 REM    -DCMAKE_MAKE_PROGRAM=make ^
 
-REM Ninja setting:
+REM Ninja gives an error, maybe something to clean up?
 REM    -GNinja ^
-REM Ninja gives this error:
 REM [533/590] Generating Fortran dyndep file modules/map/CMakeFiles/maplib.dir/Fortran.dd
 REM ninja: build stopped: multiple rules generate ftnmods/map_types.mod.
 
-REM Tested locally but not on conda-forge- have to add "jom" to choco list
+REM Builds only with shared libs locally, but nothing runs ("jom" added through choco)
+REM     -DBUILD_SHARED_LIBS=ON ^
 REM         -G "NMake Makefiles JOM"              ^
 
-REM Works locally but not on Azure
+REM Does not link nicely with MinGW on Azure
 REM     -DBUILD_SHARED_LIBS=ON ^
 
 
