@@ -31,7 +31,6 @@ requirements:
   host:
     - openblas
     - libblas
-#    - liblapack    # [not win]
     - libpgmath   # [win]
 
 test:

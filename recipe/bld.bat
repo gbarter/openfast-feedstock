@@ -16,7 +16,6 @@ cmake ^
     -DCMAKE_MAKE_PROGRAM=make ^
     -DCMAKE_BUILD_TYPE=RelWithDebInfo ^
     -DDOUBLE_PRECISION=OFF ^
-    -DBUILD_SHARED_LIBS=ON ^
     -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%" ^
     -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
     -DCMAKE_INSTALL_LIBDIR=lib ^
@@ -37,6 +36,10 @@ REM ninja: build stopped: multiple rules generate ftnmods/map_types.mod.
 
 REM Tested locally but not on conda-forge- have to add "jom" to choco list
 REM         -G "NMake Makefiles JOM"              ^
+
+REM Works locally but not on Azure
+REM     -DBUILD_SHARED_LIBS=ON ^
+
 
 if errorlevel 1 exit /b 1
 
