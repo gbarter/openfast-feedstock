@@ -1,5 +1,0 @@
-choco:
-  - mingw
-  - make
-  - ninja
-#  - cmake
