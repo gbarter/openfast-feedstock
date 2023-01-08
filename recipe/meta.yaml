@@ -24,19 +24,15 @@ requirements:
     - {{ compiler('c') }}  # [not win]
     - {{ compiler('cxx') }}  # [not win]
     - {{ compiler('fortran') }}  # [not win]
-#    - {{ compiler('m2w64_fortran') }}  # [win]
-#    - {{ compiler('m2w64_cxx') }}  # [win]
-#    - {{ compiler('m2w64_c') }}  # [win]
     - cmake
     - make
-    - ninja
     - llvm-openmp  # [osx]
     - libgomp      # [linux]
   host:
     - openblas
     - libblas
 #    - liblapack    # [not win]
-#    - libpgmath   # [win]
+    - libpgmath   # [win]
 
 test:
   commands:
