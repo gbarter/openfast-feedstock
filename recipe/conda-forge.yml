@@ -1,5 +1,5 @@
 choco:
-  - mingw  # [win]
-  - make  # [win]
-  - ninja  # [win]
-#  - cmake  # [win]
+  - mingw
+  - make
+  - ninja
+#  - cmake
