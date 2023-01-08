@@ -12,7 +12,8 @@ cd build
 cmake ^
     -S %SRC_DIR% ^
     -B . ^
-    -GNinja ^
+    -G "MinGW Makefiles" ^
+    -DCMAKE_MAKE_PROGRAM=make ^
     -DCMAKE_BUILD_TYPE=RelWithDebInfo ^
     -DDOUBLE_PRECISION=OFF ^
     -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%" ^
@@ -26,6 +27,13 @@ cmake ^
 REM THIS CONFIG WORKS BUT RUNS OUT OF MEMORY
 REM    -G "MinGW Makefiles" ^
 REM    -DCMAKE_MAKE_PROGRAM=make ^
+
+REM Ninja setting:
+REM    -GNinja ^
+REM Ninja gives this error:
+REM [533/590] Generating Fortran dyndep file modules/map/CMakeFiles/maplib.dir/Fortran.dd
+REM ninja: build stopped: multiple rules generate ftnmods/map_types.mod.
+
 if errorlevel 1 exit /b 1
 
 REM    -DCMAKE_LINKER=lld-link               ^
@@ -42,7 +50,10 @@ REM         -DCMAKE_NM=llvm-nm
 	
 REM nmake -j %CPU_COUNT% install
 REM make -j %CPU_COUNT% install
-ninja -j %CPU_COUNT% install
+REM ninja -j %CPU_COUNT% install
+make
+if errorlevel 1 exit /b 1
 
+make install
 REM cmake --target install
 if errorlevel 1 exit /b 1
