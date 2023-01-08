@@ -13,6 +13,7 @@ cmake ^
     -S %SRC_DIR% ^
     -B . ^
     -G "MinGW Makefiles" ^
+    -DCMAKE_BUILD_TYPE=RelWithDebInfo ^
     -DDOUBLE_PRECISION=OFF ^
     -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%" ^
     -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
