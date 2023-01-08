@@ -19,12 +19,6 @@ build:
   number: 1
 #  skip: true  # [win and vc<14]
 
-choco:
-  - mingw  # [win]
-  - make  # [win]
-#  - cmake  # [win]
-#  - ninja  # [win]
-
 requirements:
   build:
     - {{ compiler('c') }}  # [not win]
