@@ -29,11 +29,12 @@ requirements:
 #    - {{ compiler('m2w64_c') }}  # [win]
     - cmake
     - make
+    - ninja
     - llvm-openmp  # [osx]
     - libgomp      # [linux]
   host:
     - openblas
-#    - libblas      # [not win]
+    - libblas
 #    - liblapack    # [not win]
 #    - libpgmath   # [win]
 
