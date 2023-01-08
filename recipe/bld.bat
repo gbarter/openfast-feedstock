@@ -12,12 +12,13 @@ cd build
 cmake ^
     -S %SRC_DIR% ^
     -B . ^
-    -G "Ninja" ^
+    -G "MinGW Makefiles" ^
     -DDOUBLE_PRECISION=OFF ^
     -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%" ^
     -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
     -DCMAKE_INSTALL_LIBDIR=lib ^
     -DBUILD_FASTFARM=ON ^
+    -DCMAKE_MAKE_PROGRAM=make             ^
     -DCMAKE_C_COMPILER=gcc                ^
     -DCMAKE_CXX_COMPILER=g++              ^
     -DCMAKE_Fortran_COMPILER=gfortran          
@@ -37,7 +38,7 @@ REM         -DCMAKE_LINKER=lld-link               ^
 REM         -DCMAKE_NM=llvm-nm
 	
 REM nmake -j %CPU_COUNT% install
-REM make -j %CPU_COUNT% install
+make -j %CPU_COUNT% install
 
-cmake --target install
+REM cmake --target install
 if errorlevel 1 exit /b 1

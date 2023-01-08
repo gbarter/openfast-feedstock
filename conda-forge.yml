@@ -7,5 +7,5 @@ conda_build:
 choco:
   - mingw
   - make
-  - ninja
+#  - ninja
 #  - cmake
