@@ -17,6 +17,18 @@ jobs:
     UPLOAD_TEMP: D:\\tmp
 
   steps:
+    - script: |
+        choco install mingw -fdv -y --debug
+      displayName: "Install Chocolatey Package: mingw"
+
+    - script: |
+        choco install make -fdv -y --debug
+      displayName: "Install Chocolatey Package: make"
+
+    - script: |
+        choco install ninja -fdv -y --debug
+      displayName: "Install Chocolatey Package: ninja"
+
     - task: PythonScript@0
       displayName: 'Download Miniforge'
       inputs:
