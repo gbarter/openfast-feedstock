@@ -11,7 +11,7 @@ cd build
 
 cmake ^
     -S %SRC_DIR% ^
-    -B . ^
+    -B .. ^
     -G "MinGW Makefiles" ^
     -DDOUBLE_PRECISION=OFF ^
     -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%" ^

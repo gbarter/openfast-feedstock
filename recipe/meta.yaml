@@ -17,7 +17,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [win and vc<14]
+#  skip: true  # [win and vc<14]
 
 requirements:
   choco:
@@ -32,8 +32,8 @@ requirements:
 #    - {{ compiler('m2w64_fortran') }} # [win]
 #    - {{ compiler('m2w64_cxx') }} # [win]
 #    - {{ compiler('m2w64_c') }} # [win]
-#    - make         # [not win]
-    - cmake        # [not win]
+#    - make
+    - cmake
     - llvm-openmp  # [osx or win]
     - libgomp      # [linux]
   host:
