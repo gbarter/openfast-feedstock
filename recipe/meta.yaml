@@ -21,10 +21,10 @@ build:
 
 requirements:
   choco:
-    - mingw
-#    - cmake
-    - make
-#    - ninja
+    - mingw # [win]
+#    - cmake # [win]
+    - make # [win]
+#    - ninja # [win]
   build:
     - {{ compiler('c') }} # [not win]
     - {{ compiler('cxx') }} # [not win]
