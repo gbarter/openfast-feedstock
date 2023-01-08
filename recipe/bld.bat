@@ -18,10 +18,10 @@ cmake ^
     -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
     -DCMAKE_INSTALL_LIBDIR=lib ^
     -DBUILD_FASTFARM=ON ^
-    -DCMAKE_MAKE_PROGRAM=make             ^
-    -DCMAKE_C_COMPILER=gcc                ^
-    -DCMAKE_CXX_COMPILER=g++              ^
-    -DCMAKE_Fortran_COMPILER=gfortran          
+    -DCMAKE_MAKE_PROGRAM="C:\ProgramData\chocolatey\bin\make.exe" ^
+    -DCMAKE_C_COMPILER="C:\ProgramData\chocolatey\bin\gcc.exe" ^
+    -DCMAKE_CXX_COMPILER="C:\ProgramData\chocolatey\bin\g++.exe" ^
+    -DCMAKE_Fortran_COMPILER="C:\ProgramData\chocolatey\bin\gfortran.exe" ^
 REM    -DCMAKE_LINKER=lld-link               ^
 REM    -DCMAKE_NM=llvm-nm
 REM    -DBUILD_OPENFAST_CPP_API=ON
