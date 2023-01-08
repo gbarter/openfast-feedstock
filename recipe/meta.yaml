@@ -20,16 +20,24 @@ build:
   skip: true  # [win and vc<14]
 
 requirements:
+  choco:
+    - mingw
+#    - cmake
+    - make
+#    - ninja
   build:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
-    - {{ compiler('fortran') }}
-    - make         # [not win]
-    - ninja        # [win]
-    - cmake
+    - {{ compiler('c') }} # [not win]
+    - {{ compiler('cxx') }} # [not win]
+    - {{ compiler('fortran') }} # [not win]
+#    - {{ compiler('m2w64_fortran') }} # [win]
+#    - {{ compiler('m2w64_cxx') }} # [win]
+#    - {{ compiler('m2w64_c') }} # [win]
+#    - make         # [not win]
+    - cmake        # [not win]
     - llvm-openmp  # [osx or win]
     - libgomp      # [linux]
   host:
+    - openblas
     - libblas
     - liblapack
     - libpgmath   # [win]
