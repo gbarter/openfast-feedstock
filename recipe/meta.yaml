@@ -28,7 +28,7 @@ requirements:
 #    - {{ compiler('m2w64_cxx') }}  # [win]
 #    - {{ compiler('m2w64_c') }}  # [win]
     - cmake
-    - make         # [not win]
+    - make
     - llvm-openmp  # [osx]
     - libgomp      # [linux]
   host:

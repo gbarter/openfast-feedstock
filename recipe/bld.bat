@@ -18,10 +18,11 @@ cmake ^
     -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
     -DCMAKE_INSTALL_LIBDIR=lib ^
     -DBUILD_FASTFARM=ON ^
-    -DCMAKE_MAKE_PROGRAM="C:/ProgramData/chocolatey/bin/make.exe" ^
+    -DCMAKE_MAKE_PROGRAM=make ^
     -DCMAKE_C_COMPILER="C:/ProgramData/chocolatey/bin/gcc.exe" ^
     -DCMAKE_CXX_COMPILER="C:/ProgramData/chocolatey/bin/g++.exe" ^
     -DCMAKE_Fortran_COMPILER="C:/ProgramData/chocolatey/bin/gfortran.exe"
+REM    -DCMAKE_MAKE_PROGRAM="C:/ProgramData/chocolatey/bin/make.exe" ^
 REM    -DCMAKE_LINKER=lld-link               ^
 REM    -DCMAKE_NM=llvm-nm
 REM    -DBUILD_OPENFAST_CPP_API=ON
@@ -38,7 +39,7 @@ REM         -DCMAKE_LINKER=lld-link               ^
 REM         -DCMAKE_NM=llvm-nm
 	
 REM nmake -j %CPU_COUNT% install
-REM make -j %CPU_COUNT% install
+make -j %CPU_COUNT% install
 
-cmake --target install
+REM cmake --target install
 if errorlevel 1 exit /b 1
