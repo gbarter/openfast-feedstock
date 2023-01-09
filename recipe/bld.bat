@@ -16,7 +16,7 @@ cmake ^
     -G "Unix Makefiles" ^
     -DCMAKE_MAKE_PROGRAM="C:/ProgramData/chocolatey/bin/make.exe" ^
     -DCMAKE_FIND_LIBRARY_SUFFIXES=".a" ^
-    -DCMAKE_BUILD_TYPE="Release" ^
+    -DCMAKE_BUILD_TYPE="RelWithDebInfo" ^
     -DCMAKE_C_FLAGS="-static" ^
     -DCMAKE_CXX_FLAGS="-static" ^
     -DCMAKE_Fortran_FLAGS="-static" ^
@@ -34,6 +34,8 @@ REM This config almost works with mingw through choco (v8 on Azure, v12 locally)
 REM Has linking problems in that the executables don't run after the fact (choco bin-dir not in PATH)
 REM    -G "MinGW Makefiles" ^
 REM    -DCMAKE_MAKE_PROGRAM=make ^ REM (conda's make)
+
+REM Use config RelWithDebInfo instead of Releease, otherwise 4hr build 
 REM     -DCMAKE_BUILD_TYPE=RelWithDebInfo ^
 
 REM Ninja gives an error, maybe something to clean up?
