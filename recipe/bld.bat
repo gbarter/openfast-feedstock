@@ -4,10 +4,10 @@ REM cd %SRC_DIR%
 REM set CC=cl
 REM set FC=flang
 REM set CC_LD=link
-REM set FFLAGS="-static-libgfortran" "
-REM -static-libquadmath -static"
-set CFLAGS="-static"
-set CXXFLAGS="-static"
+set FFLAGS="-O1"
+REM "-static-libquadmath -static"
+set CFLAGS="-O1 -static"
+set CXXFLAGS="-O1 -static"
 set LDFLAGS="-static"
 
 
@@ -19,7 +19,6 @@ cmake ^
     -B . ^
     -G "MinGW Makefiles" ^
     -DCMAKE_MAKE_PROGRAM="C:/ProgramData/chocolatey/bin/mingw32-make.exe" ^
-    -DCMAKE_BUILD_TYPE=RelWithDebInfo ^
     -DCMAKE_FIND_LIBRARY_SUFFIXES=".a" ^
     -DBUILD_SHARED_LIBS=OFF ^
     -DDOUBLE_PRECISION=OFF ^
@@ -34,6 +33,7 @@ cmake ^
 REM This config works with mingw through choco (v8 on Azure, v12 locally)
 REM    -G "MinGW Makefiles" ^
 REM    -DCMAKE_MAKE_PROGRAM=make ^
+REM     -DCMAKE_BUILD_TYPE=RelWithDebInfo ^
 
 REM Ninja gives an error, maybe something to clean up?
 REM    -GNinja ^
