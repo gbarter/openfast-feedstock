@@ -17,7 +17,9 @@ source:
 
 build:
   number: 1
-
+  missing_dso_whitelist:
+    - "*/libopenfastlib.dll"   # [win]
+    
 requirements:
   build:
     - {{ compiler('c') }}  # [not win]
@@ -27,15 +29,18 @@ requirements:
     - make         # [not win]
     - llvm-openmp  # [osx]
     - libgomp      # [linux]
-    - openblas     # [win]
   host:
-    - liblapack
+    - openblas     # [win]
+    - liblapack    # [not win]
     - libblas
     - libpgmath   # [win]
+  run:
+    - openblas     # [win]
 
 test:
   commands:
-    - openfast -h
+    - openfast -h   # [not win]
+    - openfast.exe -h   # [win]
     - FAST.Farm -h
     - aerodyn_driver -h
     - hydrodyn_driver -h

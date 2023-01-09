@@ -4,10 +4,6 @@ REM cd %SRC_DIR%
 REM set CC=cl
 REM set FC=flang
 REM set CC_LD=link
-REM set FFLAGS="-O1"
-REM "-static-libquadmath -static"
-REM set CFLAGS="-O1 -static"
-REM set CXXFLAGS="-O1 -static"
 set LDFLAGS="-static"
 
 
@@ -33,9 +29,10 @@ cmake ^
     -DCMAKE_CXX_COMPILER="C:/ProgramData/chocolatey/bin/g++.exe" ^
     -DCMAKE_Fortran_COMPILER="C:/ProgramData/chocolatey/bin/gfortran.exe"
 
-REM This config works with mingw through choco (v8 on Azure, v12 locally)
+REM This config almost works with mingw through choco (v8 on Azure, v12 locally)
+REM Has linking problems in that the executables don't run after the fact (choco bin-dir not in PATH)
 REM    -G "MinGW Makefiles" ^
-REM    -DCMAKE_MAKE_PROGRAM=make ^
+REM    -DCMAKE_MAKE_PROGRAM=make ^ REM (conda's make)
 REM     -DCMAKE_BUILD_TYPE=RelWithDebInfo ^
 
 REM Ninja gives an error, maybe something to clean up?

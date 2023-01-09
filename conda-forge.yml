@@ -5,7 +5,7 @@ github:
 conda_build:
   pkg_format: '2'
 choco:
-  - mingw
+  - mingw --version=12.2
   - make
   - ninja
   - jom
