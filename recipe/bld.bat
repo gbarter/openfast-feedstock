@@ -56,17 +56,16 @@ REM         -DCMAKE_CXX_COMPILER=clang-cl         ^
 REM         -DCMAKE_LINKER=lld-link               ^
 REM         -DCMAKE_NM=llvm-nm
 	
-REM cmake --build .
-REM cmake --install .
+cmake --build .
 
 REM Runs out of memory
 REM make -j %CPU_COUNT% install
 
 REM See ninja error above
 REM ninja -j %CPU_COUNT% install
-make
+REM make
 if errorlevel 1 exit /b 1
 
-make install
-REM cmake --target install
+REM make install
+cmake --install .
 if errorlevel 1 exit /b 1
