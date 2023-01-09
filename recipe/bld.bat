@@ -4,6 +4,10 @@ REM cd %SRC_DIR%
 REM set CC=cl
 REM set FC=flang
 REM set CC_LD=link
+set FFLAGS="-static-libgfortran -static-libquadmath -static"
+set CFLAGS="-static"
+set CXXFLAGS="-static"
+set LDFLAGS="-static"
 
 
 mkdir build

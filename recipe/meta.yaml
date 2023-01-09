@@ -27,8 +27,8 @@ requirements:
     - make
     - llvm-openmp  # [osx]
     - libgomp      # [linux]
+    - openblas     # [win]
   host:
-#    - openblas
     - liblapack
     - libblas
     - libpgmath   # [win]
