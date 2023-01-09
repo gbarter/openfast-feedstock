@@ -18,8 +18,8 @@ jobs:
 
   steps:
     - script: |
-        choco install mingw -fdv -y --debug
-      displayName: "Install Chocolatey Package: mingw"
+        choco install mingw --version=12.2 -fdv -y --debug
+      displayName: "Install Chocolatey Package: mingw --version=12.2"
 
     - script: |
         choco install make -fdv -y --debug
