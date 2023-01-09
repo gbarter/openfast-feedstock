@@ -24,7 +24,7 @@ requirements:
     - {{ compiler('cxx') }}  # [not win]
     - {{ compiler('fortran') }}  # [not win]
     - cmake
-    - make
+    - make         # [not win]
     - llvm-openmp  # [osx]
     - libgomp      # [linux]
     - openblas     # [win]

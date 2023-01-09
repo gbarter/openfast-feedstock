@@ -4,7 +4,8 @@ REM cd %SRC_DIR%
 REM set CC=cl
 REM set FC=flang
 REM set CC_LD=link
-set FFLAGS="-static-libgfortran -static-libquadmath -static"
+set FFLAGS="-static-libgfortran" "
+REM -static-libquadmath -static"
 set CFLAGS="-static"
 set CXXFLAGS="-static"
 set LDFLAGS="-static"
@@ -17,7 +18,7 @@ cmake ^
     -S %SRC_DIR% ^
     -B . ^
     -G "MinGW Makefiles" ^
-    -DCMAKE_MAKE_PROGRAM=make ^
+    -DCMAKE_MAKE_PROGRAM="C:/ProgramData/chocolatey/bin/mingw32-make.exe" ^
     -DCMAKE_BUILD_TYPE=RelWithDebInfo ^
     -DCMAKE_FIND_LIBRARY_SUFFIXES=".a" ^
     -DBUILD_SHARED_LIBS=OFF ^
