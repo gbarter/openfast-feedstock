@@ -6,3 +6,6 @@ conda_build:
   pkg_format: '2'
 choco:
   - mingw
+  - make
+  - ninja
+  - jom
