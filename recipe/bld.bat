@@ -56,7 +56,7 @@ REM         -DCMAKE_CXX_COMPILER=clang-cl         ^
 REM         -DCMAKE_LINKER=lld-link               ^
 REM         -DCMAKE_NM=llvm-nm
 	
-cmake --build .
+cmake --build . -j 1
 
 REM Runs out of memory
 REM make -j %CPU_COUNT% install
