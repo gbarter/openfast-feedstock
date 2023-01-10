@@ -16,23 +16,23 @@ source:
 #   git_depth: 1 # (Defaults to -1/not shallow)
 
 build:
-  number: 0
-  skip: true  # [win]
-
+  number: 1
+  missing_dso_whitelist:
+    - "*/libopenfastlib.dll"   # [win]
+    
 requirements:
   build:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
-    - {{ compiler('fortran') }}
-    - {{ compiler('m2w64_c') }}  # [win]
-    - {{ compiler('m2w64_cxx') }}  # [win]
-    - make
+    - {{ compiler('c') }}  # [not win]
+    - {{ compiler('cxx') }}  # [not win]
+    - {{ compiler('fortran') }}  # [not win]
     - cmake
+    - make         # [not win]
     - llvm-openmp  # [osx]
     - libgomp      # [linux]
   host:
-    - libblas
     - liblapack
+    - libblas
+
 
 test:
   commands:
