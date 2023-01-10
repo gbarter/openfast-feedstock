@@ -1,7 +1,7 @@
 channel_sources:
 - conda-forge
 channel_targets:
-- conda-forge dev
+- conda-forge rc
 libblas:
 - 3.9 *netlib
 liblapack:
