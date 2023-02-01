@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [[ "$CONDA_BUILD_CROSS_COMPILATION" == 1 && $target_platform == "osx-arm64" ]]; then
+    export LDFLAGS="${LDFLAGS:-} -lquadmath"
+fi
+
 mkdir build
 cd build
 
