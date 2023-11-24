@@ -1,5 +1,5 @@
 {% set name = "openfast" %}
-{% set version = "3.4.1" %}
+{% set version = "3.5.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/openfast/openfast/archive/v{{ version }}.tar.gz
-  sha256: 0717c3aba48aa58fac10de308313328f6ed798cdf9c210172ccc978ec591f170
+  sha256: 94da085f1d8861a93ab32b6b39335a403d182be0b5f7ff48f63d5805eb7f2b2c
   # Download the tar-ball and do `openssl sha256 file.tar.gz` to update
 
 # source:

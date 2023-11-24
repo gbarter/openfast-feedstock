@@ -1,11 +1,11 @@
-About openfast
-==============
+About openfast-feedstock
+========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/openfast-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/openfast/openfast
 
 Package license: Apache-2.0
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/openfast-feedstock/blob/main/LICENSE.txt)
 
 Summary: OpenFAST whole turbine simulation tool
 
