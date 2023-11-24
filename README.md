@@ -47,14 +47,17 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-              <td>win_64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9498&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/openfast-feedstock?branchName=main&jobName=win&configuration=win%20win_64_" alt="variant">
               <td>osx_arm64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9498&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/openfast-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9498&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/openfast-feedstock?branchName=main&jobName=win&configuration=win%20win_64_" alt="variant">
                 </a>
               </td>
             </tr>
@@ -75,14 +78,14 @@ Current release info
 Installing openfast
 ===================
 
-Installing `openfast` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `openfast` from the `conda-forge/label/rc` channel can be achieved by adding `conda-forge/label/rc` to your channels with:
 
 ```
-conda config --add channels conda-forge
+conda config --add channels conda-forge/label/rc
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `openfast` can be installed with `conda`:
+Once the `conda-forge/label/rc` channel has been enabled, `openfast` can be installed with `conda`:
 
 ```
 conda install openfast
@@ -97,26 +100,26 @@ mamba install openfast
 It is possible to list all of the versions of `openfast` available on your platform with `conda`:
 
 ```
-conda search openfast --channel conda-forge
+conda search openfast --channel conda-forge/label/rc
 ```
 
 or with `mamba`:
 
 ```
-mamba search openfast --channel conda-forge
+mamba search openfast --channel conda-forge/label/rc
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search openfast --channel conda-forge
+mamba repoquery search openfast --channel conda-forge/label/rc
 
 # List packages depending on `openfast`:
-mamba repoquery whoneeds openfast --channel conda-forge
+mamba repoquery whoneeds openfast --channel conda-forge/label/rc
 
 # List dependencies of `openfast`:
-mamba repoquery depends openfast --channel conda-forge
+mamba repoquery depends openfast --channel conda-forge/label/rc
 ```
 
 
@@ -138,7 +141,7 @@ available continuous integration services. Thanks to the awesome service provide
 [CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
 [Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
 it is possible to build and upload installable packages to the
-[conda-forge](https://anaconda.org/conda-forge) [Anaconda-Cloud](https://anaconda.org/)
+[conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance
