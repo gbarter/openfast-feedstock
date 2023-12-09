@@ -192,6 +192,5 @@ Feedstock Maintainers
 * [@andrew-platt](https://github.com/andrew-platt/)
 * [@deslaughter](https://github.com/deslaughter/)
 * [@gbarter](https://github.com/gbarter/)
-* [@openfast](https://github.com/openfast/)
 * [@rafmudaf](https://github.com/rafmudaf/)
 
