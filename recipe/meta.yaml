@@ -18,20 +18,19 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}  # [not win]
+    - clang                      # [win]
     - flang                      # [win]
     - lld                        # [win]
-    - make  # [not win]
+    - make                       # [not win]
     - cmake
-    - ninja  # [win]
-    - llvm-openmp  # [osx]
+    - ninja                      # [win]
+    - llvm-openmp                # [osx]
   host:
-    - openblas
-    - ucrt  # [win]
-    - libgomp  # [linux or win]
-  run:
-    - libopenblas  # [win]
-    - ucrt  # [win]
-    - libgomp  # [linux or win]
+    - compiler-rt                # [win]
+    - libblas
+    - libcblas
+    - ucrt                       # [win]
+    - libgomp                    # [linux]
 
 test:
   commands:
