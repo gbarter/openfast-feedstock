@@ -35,6 +35,9 @@ cmake ^
     -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^
     -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
     -DBUILD_FASTFARM=ON ^
+    -DCMAKE_Fortran_COMPILER=%FC% ^
+    -DCMAKE_C_COMPILER=%CC% ^
+    -DCMAKE_CXX_COMPILER=%CXX% ^
     ..
 
 if errorlevel 1 exit /b 1
