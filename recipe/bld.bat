@@ -24,7 +24,7 @@ cmake ^
     -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^
     -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
     -DBUILD_FASTFARM=ON ^
-    -DCMAKE_Fortran_COMPILER=ifort
+    -DCMAKE_Fortran_COMPILER=ifort ^
     -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded
 if errorlevel 1 exit /b 1
 	
