@@ -11,26 +11,27 @@ source:
   git_depth: 1 # (Defaults to -1/not shallow)
 
 build:
-  number: 2
+  number: 3
   missing_dso_whitelist:
     - "*/libopenfastlib.dll"   # [win]
     
 requirements:
   build:
-    - {{ compiler('c') }}  # [not win]
-    - {{ compiler('cxx') }}  # [not win]
-    - {{ compiler('fortran') }}  # [not win]
-    - make  # [not win]
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    # - {{ compiler('fortran') }}  # [not win]
+    # - make  # [not win]
     - cmake
-    - llvm-openmp  # [osx]
-  host:
-    - openblas
-    - ucrt  # [win]
-    - libgomp  # [linux or win]
-  run:
-    - libopenblas  # [win]
-    - ucrt  # [win]
-    - libgomp  # [linux or win]
+    - ninja  # [win]
+    # - llvm-openmp  # [osx]
+  # host:
+    # - openblas
+    # - ucrt  # [win]
+    # - libgomp  # [linux or win]
+  # run:
+    # - libopenblas  # [win]
+    # - ucrt  # [win]
+    # - libgomp  # [linux or win]
 
 test:
   commands:
@@ -53,8 +54,7 @@ about:
 
 extra:
   recipe-maintainers:
-    - rafmudaf
     - openfast
-    - andrew-platt
     - deslaughter
     - gbarter
+    - andrew-platt
