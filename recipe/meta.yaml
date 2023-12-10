@@ -6,31 +6,31 @@ package:
   version: {{ version }}
 
 source:
-  git_url: https://github.com/openfast/openfast.git
-  git_rev: v{{ version }}
-  git_depth: 1 # (Defaults to -1/not shallow)
+  url: https://github.com/openfast/openfast/archive/v{{ version }}.tar.gz
+  sha256: 94da085f1d8861a93ab32b6b39335a403d182be0b5f7ff48f63d5805eb7f2b2c
 
 build:
-  number: 2
-  missing_dso_whitelist:
-    - "*/libopenfastlib.dll"   # [win]
-    
+  number: 3
+  skip: true  # [not win]
+
 requirements:
   build:
-    - {{ compiler('c') }}  # [not win]
-    - {{ compiler('cxx') }}  # [not win]
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}  # [not win]
-    - make  # [not win]
+    - clang                      # [win]
+    - flang                      # [win]
+    - lld                        # [win]
+    - make                       # [not win]
     - cmake
-    - llvm-openmp  # [osx]
+    - ninja                      # [win]
+    - llvm-openmp                # [osx]
   host:
-    - openblas
-    - ucrt  # [win]
-    - libgomp  # [linux or win]
-  run:
-    - libopenblas  # [win]
-    - ucrt  # [win]
-    - libgomp  # [linux or win]
+    - compiler-rt                # [win]
+    - libblas
+    - libcblas
+    - ucrt                       # [win]
+    - libgomp                    # [linux]
 
 test:
   commands:
@@ -54,7 +54,6 @@ about:
 extra:
   recipe-maintainers:
     - rafmudaf
-    - openfast
     - andrew-platt
     - deslaughter
     - gbarter
