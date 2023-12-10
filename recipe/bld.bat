@@ -13,7 +13,6 @@ webimage2_extracted\bootstrapper.exe -s --action install --components=intel.onea
 @call "C:\Program Files (x86)\Intel\oneAPI\setvars.bat"
 
 mkdir build
-set LDFLAGS="-static"
 
 cmake ^
     -S %SRC_DIR% ^
@@ -26,10 +25,9 @@ cmake ^
     -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
     -DBUILD_FASTFARM=ON ^
     -DCMAKE_Fortran_COMPILER=ifort
+    -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded
 if errorlevel 1 exit /b 1
 	
-cmake --build . -j 2
+cmake --build build  --target install
 if errorlevel 1 exit /b 1
 
-cmake --install .
-if errorlevel 1 exit /b 1
