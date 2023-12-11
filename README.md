@@ -193,5 +193,4 @@ Feedstock Maintainers
 * [@deslaughter](https://github.com/deslaughter/)
 * [@gbarter](https://github.com/gbarter/)
 * [@openfast](https://github.com/openfast/)
-* [@rafmudaf](https://github.com/rafmudaf/)
 
