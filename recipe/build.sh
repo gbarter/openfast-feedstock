@@ -5,7 +5,7 @@ mkdir build
 cmake \
     -S ${SRC_DIR} \
     -B build \
-    -G "Ninja" \
+    -G "Unix Makefiles" \
     -DCMAKE_BUILD_TYPE="Release" \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
     -DDOUBLE_PRECISION=OFF \

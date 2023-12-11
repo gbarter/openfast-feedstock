@@ -21,7 +21,8 @@ requirements:
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}  # [not win]
     - cmake
-    - ninja
+    - make  # [not win]
+    - ninja  # [win]
   host:
     - llvm-openmp  # [osx]
     - libgomp  # [linux]
