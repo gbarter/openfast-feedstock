@@ -27,7 +27,7 @@ requirements:
     - libgomp  # [linux]
     - openblas  # [not win]
   run:
-    - intel-openmp  =2024.0.0 # [win]
+    - intel-openmp  =2024.0.0  # [win]
 
 test:
   commands:
