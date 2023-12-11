@@ -5,15 +5,16 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == 1 && $target_platform == "osx-arm64" ]
 fi
 
 mkdir build
-cd build
 
 cmake \
     -S ${SRC_DIR} \
-    -B . \
-    -DDOUBLE_PRECISION=OFF \
+    -B build \
+    -G "Ninja" \
+    -DCMAKE_BUILD_TYPE="Release" \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
-    -DBUILD_FASTFARM=ON \
+    -DDOUBLE_PRECISION=OFF \
     -DBLA_VENDOR=OpenBLAS \
-    -DBLA_STATIC=ON
+    -DBLA_STATIC=ON \
+    -DBUILD_FASTFARM=ON
 
-make -j"${CPU_COUNT}" install
+cmake --build build --target install -j ${CPU_COUNT}

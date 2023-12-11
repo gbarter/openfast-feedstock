@@ -19,15 +19,14 @@ cmake ^
     -B build ^
     -G "Ninja" ^
     -DCMAKE_BUILD_TYPE="Release" ^
-    -DDOUBLE_PRECISION=OFF ^
-    -DBLA_STATIC=ON ^
-    -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^
     -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
-    -DBUILD_FASTFARM=ON ^
     -DCMAKE_Fortran_COMPILER=ifort ^
-    -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded
+    -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded ^
+    -DBLA_STATIC=ON ^
+    -DDOUBLE_PRECISION=OFF ^
+    -DBUILD_FASTFARM=ON
 if errorlevel 1 exit /b 1
 	
-cmake --build build  --target install
+cmake --build build  --target install -j %CPU_COUNT%
 if errorlevel 1 exit /b 1
 
