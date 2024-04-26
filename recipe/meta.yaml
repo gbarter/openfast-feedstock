@@ -16,7 +16,6 @@ build:
   number: 0
   missing_dso_whitelist:
     - "*/libopenfastlib.dll"   # [win]
-    #- "*/libiomp5md.dll"  # [win]
     
 requirements:
   build:
