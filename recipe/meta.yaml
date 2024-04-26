@@ -1,5 +1,5 @@
 {% set name = "openfast" %}
-{% set version = "3.5.2" %}
+{% set version = "3.5.3" %}
 
 package:
   name: {{ name|lower }}
@@ -16,7 +16,7 @@ build:
   number: 1
   missing_dso_whitelist:
     - "*/libopenfastlib.dll"   # [win]
-    - "*/libiomp5md.dll"  # [win]
+    #- "*/libiomp5md.dll"  # [win]
     
 requirements:
   build:
@@ -30,7 +30,7 @@ requirements:
     - libgomp  # [linux]
     - openblas  # [not win]
   run:
-    - intel-openmp  =2024.0.0  # [win]
+    - llvm-openmp  # [win]
 
 test:
   commands:
