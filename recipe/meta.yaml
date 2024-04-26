@@ -24,13 +24,16 @@ requirements:
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}  # [not win]
     - cmake
-    - make  # [not win]
+    - make   # [not win]
     - ninja  # [win]
   host:
-    - libgomp  # [linux]
-    - openblas  # [not win]
+    - libgomp      # [linux]
+    - llvm-openmp  # [not linux]
+    - openblas     # [not win]
+    #- mkl          # [win]
   run:
-    - llvm-openmp  # [win]
+    - libgomp      # [linux]
+    - llvm-openmp  # [not linux]
 
 test:
   commands:
