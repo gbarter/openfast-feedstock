@@ -1,38 +1,35 @@
 {% set name = "openfast" %}
-{% set version = "3.5.3" %}
+{% set version = "3.5.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  #url: https://github.com/openfast/openfast/archive/v{{ version }}.tar.gz
-  #sha256: 94da085f1d8861a93ab32b6b39335a403d182be0b5f7ff48f63d5805eb7f2b2c
-  git_url: https://github.com/openfast/openfast.git
-  git_rev: v{{ version }}
-  git_depth: 1 # (Defaults to -1/not shallow)
-  patches:
-      - fPIC.patch
-      
+  url: https://github.com/openfast/openfast/archive/v{{ version }}.tar.gz
+  sha256: 94da085f1d8861a93ab32b6b39335a403d182be0b5f7ff48f63d5805eb7f2b2c
+
 build:
   number: 3
-  #skip: true  # [not win]
+  skip: true  # [not win]
 
 requirements:
   build:
-    - {{ compiler('c') }}               # [not win]
-    - {{ compiler('cxx') }}             # [not win]
-    - {{ compiler('fortran') }}         # [not win]
-    - {{ compiler('m2w64_c') }}         # [win]
-    - {{ compiler('m2w64_cxx') }}       # [win]
-    - {{ compiler('m2w64_fortran') }}   # [win]
-    - make                              # [not win]
-    - ninja                             # [win]
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - {{ compiler('fortran') }}  # [not win]
+    - clang                      # [win]
+    - flang                      # [win]
+    - lld                        # [win]
+    - make                       # [not win]
     - cmake
+    - ninja                      # [win]
     - llvm-openmp                # [osx]
   host:
+    - compiler-rt                # [win]
     - libblas
     - libcblas
+    - ucrt                       # [win]
     - libgomp                    # [linux]
 
 test:
