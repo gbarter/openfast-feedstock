@@ -6,7 +6,6 @@ mkdir build
 set "CC=gcc.exe"
 set "CXX=g++.exe"
 set "FC=gfortran.exe"
-::     -G "Ninja" ^
 ::    -DCMAKE_Fortran_COMPILER=%FC% ^
 ::    -DCMAKE_C_COMPILER=%CC% ^
 ::    -DCMAKE_CXX_COMPILER=%CXX% ^
@@ -15,7 +14,7 @@ set "FC=gfortran.exe"
 cmake ^
     -S %SRC_DIR% ^
     -B build ^
-    -G "Unix Makefiles" ^
+    -G "Ninja" ^
     -DCMAKE_BUILD_TYPE="Release" ^
     -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
     -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded ^
