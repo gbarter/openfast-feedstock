@@ -6,9 +6,6 @@ mkdir build
 set "CC=gcc.exe"
 set "CXX=g++.exe"
 set "FC=gfortran.exe"
-::    -DCMAKE_Fortran_COMPILER=%FC% ^
-::    -DCMAKE_C_COMPILER=%CC% ^
-::    -DCMAKE_CXX_COMPILER=%CXX% ^
 
 
 cmake ^
@@ -18,6 +15,9 @@ cmake ^
     -DCMAKE_BUILD_TYPE="Release" ^
     -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
     -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded ^
+    -DCMAKE_Fortran_COMPILER=%FC% ^
+    -DCMAKE_C_COMPILER=%CC% ^
+    -DCMAKE_CXX_COMPILER=%CXX% ^
     -DBLA_STATIC=ON ^
     -DDOUBLE_PRECISION=OFF ^
     -DBUILD_FASTFARM=ON
