@@ -20,6 +20,7 @@ build:
 
 requirements:
   build:
+    - {{ stdlib("c") }}                 # [not win]
     - {{ compiler('c') }}               # [not win]
     - {{ compiler('cxx') }}             # [not win]
     - {{ compiler('fortran') }}         # [not win]
