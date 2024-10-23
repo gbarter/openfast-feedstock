@@ -4,7 +4,7 @@ mkdir build
 
 :: set compilers to gcc
 set "CC=%BUILD_PREFIX%\Library\bin\x86_64-w64-mingw32-gcc.exe"
-set "CXX=%BUILD_PREFIX%\Library\bin\x86_64-w64-mingw32-gcc.exe"
+set "CXX=%BUILD_PREFIX%\Library\bin\x86_64-w64-mingw32-g++.exe"
 set "FC=%BUILD_PREFIX%\Library\bin\x86_64-w64-mingw32-gfortran.exe"
 
 
