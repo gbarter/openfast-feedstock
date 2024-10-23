@@ -3,9 +3,9 @@
 mkdir build
 
 :: set compilers to gcc
-set "CC=%LIBRARY_BIN%\gcc.exe"
-set "CXX=%LIBRARY_BIN%\g++.exe"
-set "FC=%LIBRARY_BIN%\gfortran.exe"
+set "CC=%BUILD_PREFIX%\Library\bin\gcc.exe"
+set "CXX=%BUILD_PREFIX%\Library\bin\gcc.exe"
+set "FC=%BUILD_PREFIX%\Library\bin\gfortran.exe"
 
 
 cmake ^
