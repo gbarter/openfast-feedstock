@@ -33,9 +33,9 @@ requirements:
     - llvm-openmp                       # [osx]
   host:
     - libblas
-    - libcblas
+    - libcblas                   # [not win]
     - liblapack
-    - libgomp                    # [linux]
+    - libgomp                    # [not osx]
 
 test:
   commands:
