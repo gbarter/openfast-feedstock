@@ -6,33 +6,41 @@ package:
   version: {{ version }}
 
 source:
-  git_url: https://github.com/openfast/openfast.git
-  git_rev: v{{ version }}
-  git_depth: 1 # (Defaults to -1/not shallow)
+  # See https://conda-forge.org/docs/maintainer/adding_pkgs/#source
+  # conda-forge requests tar-ball urls instead of git actions for source
+  # Use `openssl sha256 file.tar.gz` to get sha256 stamp
+  url: https://github.com/openfast/openfast/archive/v{{ version }}.tar.gz
+  sha256: 3118fb29916c9767d64663b01c348473b9fe0999887e21c6f11b7969841d7e4b
+  #git_url: https://github.com/openfast/openfast.git
+  #git_rev: v{{ version }}
+  #git_depth: 1 # (Defaults to -1/not shallow)
   patches:
       - fPIC.patch
 
 build:
-  number: 0
+  number: 1
   missing_dso_whitelist:
     - "*/libopenfastlib.dll"   # [win]
     
 requirements:
   build:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
-    - {{ compiler('fortran') }}  # [not win]
+    - {{ stdlib("c") }}                 # [not win]
+    - {{ compiler('c') }}               # [not win]
+    - {{ compiler('cxx') }}             # [not win]
+    - {{ compiler('fortran') }}         # [not win]
+    - {{ compiler('m2w64_c') }}         # [win]
+    - {{ compiler('m2w64_cxx') }}       # [win]
+    - {{ compiler('m2w64_fortran') }}   # [win]
     - cmake
-    - make   # [not win]
-    - ninja  # [win]
+    - make         # [not win]
+    - ninja        # [win]
   host:
-    - libgomp      # [linux]
-    - llvm-openmp  # [not linux]
-    - openblas     # [not win]
-    #- mkl          # [win]
+    - libgomp      # [not osx]
+    - llvm-openmp  # [osx]
+    - openblas
   run:
-    - libgomp      # [linux]
-    - llvm-openmp  # [not linux]
+    - libgomp      # [not osx]
+    - llvm-openmp  # [osx]
 
 test:
   commands:
