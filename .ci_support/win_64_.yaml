@@ -11,7 +11,7 @@ m2w64_c_compiler:
 m2w64_c_compiler_version:
 - '14'
 m2w64_cxx_compiler:
-- gcc
+- gxx
 m2w64_cxx_compiler_version:
 - '14'
 m2w64_fortran_compiler:
