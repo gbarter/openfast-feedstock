@@ -37,10 +37,10 @@ requirements:
   host:
     - libgomp      # [not osx]
     - llvm-openmp  # [osx]
-    #- openblas
-    - libblas
+    - openblas     # [not win]
+    - libblas      # [win]
+    - liblapack    # [win]
     #- libcblas
-    - liblapack
     #- liblapacke    
   run:
     - libgomp      # [not osx]
