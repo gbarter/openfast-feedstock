@@ -1,5 +1,5 @@
 {% set name = "openfast" %}
-{% set version = "3.5.3" %}
+{% set version = "3.5.4" %}
 
 package:
   name: {{ name|lower }}
@@ -10,7 +10,7 @@ source:
   # conda-forge requests tar-ball urls instead of git actions for source
   # Use `openssl sha256 file.tar.gz` to get sha256 stamp
   url: https://github.com/openfast/openfast/archive/v{{ version }}.tar.gz
-  sha256: 3118fb29916c9767d64663b01c348473b9fe0999887e21c6f11b7969841d7e4b
+  sha256: 3186b78574de6482fb483d44b7908aa25a0c146a9902c7bee41e1090c0a7c9b8
   #git_url: https://github.com/openfast/openfast.git
   #git_rev: v{{ version }}
   #git_depth: 1 # (Defaults to -1/not shallow)
@@ -18,7 +18,7 @@ source:
       - fPIC.patch
 
 build:
-  number: 1
+  number: 0
   missing_dso_whitelist:
     - "*/libopenfastlib.dll"   # [win]
     
