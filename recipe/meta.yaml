@@ -63,6 +63,10 @@ outputs:
               - moordyn_driver -h
               - servodyn_driver -h
               - turbsim -h
+              - aerodisk_driver -h
+              - sed_driver -h
+              - inflowwind_driver -h
+              - seastate_driver -h
                 
     - name: openfast_io
       version: {{ version }}
@@ -92,6 +96,8 @@ outputs:
       test:
           imports:
               - openfast_io
+          requires:
+              - python {{ python_min }}
 
 about:
     home: https://github.com/openfast/openfast
