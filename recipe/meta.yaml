@@ -88,6 +88,7 @@ outputs:
               - python {{ python_min }}
               - setuptools
               - hatchling
+              - hatch-vcs
               - pip
               #- {{ pin_subpackage('openfast', exact=True) }}
           run:
