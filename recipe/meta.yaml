@@ -23,8 +23,8 @@ build:
 outputs:
     - name: openfast
       version: {{ version }}
-      script: build.sh                     # [not win]
-      script: bld.bat                      # [win]
+      script: build_of.sh                     # [not win]
+      script: bld_of.bat                      # [win]
       build:
           run_exports:
               - {{ pin_subpackage('openfast', max_pin='x.x') }}
@@ -56,27 +56,30 @@ outputs:
 
       test:
           commands:
-              - openfast -h
-              - FAST.Farm -h
-              - aerodyn_driver -h
-              - hydrodyn_driver -h
-              - moordyn_driver -h
-              - servodyn_driver -h
-              - turbsim -h
               - aerodisk_driver -h
-              - sed_driver -h
+              - aerodyn_driver -h
+              - beamdyn_driver -h
+              - FAST.Farm -h
+              - hydrodyn_driver -h
               - inflowwind_driver -h
+              - moordyn_driver -h
+              - openfast -h
               - seastate_driver -h
+              - sed_driver -h
+              - servodyn_driver -h
+              - subdyn_driver -h
+              - turbsim -h
                 
     - name: openfast_io
       version: {{ version }}
+      script: build_io.sh                     # [not win]
+      script: bld_io.bat                      # [win]
       build:
           #string: py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
           run_exports:
               - {{ pin_subpackage('openfast_io', max_pin='x.x') }}
-          skip: True  # [python_impl == 'pypy']
-          noarch: python
-          script: {{ PYTHON }} -m pip install openfast_io -vv --no-deps --no-build-isolation
+          #noarch: python
+          #script: {{ PYTHON }} -m pip install openfast_io -vv --no-deps --no-build-isolation
           
       requirements:
           host:
