@@ -72,7 +72,7 @@ outputs:
               - subdyn_driver -h
               - turbsim -h
                 
-    - name: openfast_io
+    - name: openfast-io
       version: {{ version }}
       script: build_io.sh
       build:
