@@ -8,6 +8,7 @@ cmake \
     -G "Unix Makefiles" \
     -DCMAKE_BUILD_TYPE="Release" \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
+    -DGIT_DESCRIBE=v${PKG_VERSION} \
     -DDOUBLE_PRECISION=OFF \
     -DBLA_VENDOR=OpenBLAS \
     -DBLA_STATIC=ON \
