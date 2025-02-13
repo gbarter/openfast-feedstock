@@ -1,6 +1,6 @@
 {% set name = "openfast" %}
 {% set version = "4.0.2" %}
-{% set python_min = "3.10" %}
+{% set python_min = "3.11" %}
 
 package:
     name: {{ name|lower }}
@@ -15,8 +15,8 @@ source:
     #git_url: https://github.com/openfast/openfast.git
     #git_rev: v{{ version }}
     #git_depth: 1 # (Defaults to -1/not shallow)
-    patches:
-      - version.patch
+    #patches:
+    #  - version.patch
 
 build:
     number: 2
@@ -74,15 +74,10 @@ outputs:
                 
     - name: openfast_io
       version: {{ version }}
-      #script: build_io.sh                     # [not win]
-      #script: bld_io.bat                      # [win]
       script: build_io.sh
       build:
-          #string: py{{ CONDA_PY }}h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
-          #run_exports:
-          #    - {{ pin_subpackage('openfast_io', max_pin='x.x') }}
           noarch: python
-          skip: true  # [py<310]
+          skip: true  # [py<311]
           #script: {{ PYTHON }} -m pip install openfast_io -vv --no-deps --no-build-isolation
           
       requirements:
