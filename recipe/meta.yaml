@@ -81,6 +81,7 @@ outputs:
           #run_exports:
           #    - {{ pin_subpackage('openfast_io', max_pin='x.x') }}
           noarch: python
+          skip: true  # [py<310]
           #script: {{ PYTHON }} -m pip install openfast_io -vv --no-deps --no-build-isolation
           
       requirements:
