@@ -1,6 +1,5 @@
 {% set name = "openfast" %}
 {% set version = "4.0.2" %}
-{% set python_min = "3.11" %}
 
 package:
     name: {{ name|lower }}
