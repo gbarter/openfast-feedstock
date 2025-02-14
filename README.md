@@ -81,6 +81,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-openfast-green.svg)](https://anaconda.org/conda-forge/openfast) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/openfast.svg)](https://anaconda.org/conda-forge/openfast) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/openfast.svg)](https://anaconda.org/conda-forge/openfast) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/openfast.svg)](https://anaconda.org/conda-forge/openfast) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-openfast--io-green.svg)](https://anaconda.org/conda-forge/openfast-io) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/openfast-io.svg)](https://anaconda.org/conda-forge/openfast-io) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/openfast-io.svg)](https://anaconda.org/conda-forge/openfast-io) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/openfast-io.svg)](https://anaconda.org/conda-forge/openfast-io) |
 
 Installing openfast
 ===================
@@ -92,16 +93,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `openfast` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `openfast, openfast-io` can be installed with `conda`:
 
 ```
-conda install openfast
+conda install openfast openfast-io
 ```
 
 or with `mamba`:
 
 ```
-mamba install openfast
+mamba install openfast openfast-io
 ```
 
 It is possible to list all of the versions of `openfast` available on your platform with `conda`:
