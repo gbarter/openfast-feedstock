@@ -75,7 +75,7 @@ outputs:
     - name: openfast-io
       version: {{ version }}
       script: build_io.sh    # [not win]
-      script: build_io.bat   # [win]
+      script: bld_io.bat     # [win]
       build:
           #noarch: python
           skip: true  # [py<311]
