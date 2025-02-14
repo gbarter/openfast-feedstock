@@ -38,7 +38,7 @@ python:
 - 3.12.* *_cpython
 - 3.9.* *_cpython
 python_min:
-- '3.9'
+- '3.11'
 target_platform:
 - osx-64
 zip_keys:
