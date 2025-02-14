@@ -81,6 +81,9 @@ outputs:
           #script: {{ PYTHON }} -m pip install openfast_io -vv --no-deps --no-build-isolation
           
       requirements:
+          build:
+              - cross-python_{{ target_platform }}         # [build_platform != target_platform]
+              - python                                     # [build_platform != target_platform]
           host:
               - python #{{ python_min }}
               - setuptools
