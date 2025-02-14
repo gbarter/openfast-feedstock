@@ -1,0 +1,13 @@
+diff --git a/openfast_io/pyproject.toml b/openfast_io/pyproject.toml
+index 1df210e66..af5c08ee2 100644
+--- a/openfast_io/pyproject.toml
++++ b/openfast_io/pyproject.toml
+@@ -20,7 +20,7 @@ maintainers = [
+     {name = "Derek Slaughter", email = "derek.slaughter@nrel.gov"  },
+ ]  
+ readme = "README.md"
+-requires-python = ">3.10"
++requires-python = ">=3.10"
+ 
+ classifiers = [  # Optional
+   # How mature is this project? Common values are
