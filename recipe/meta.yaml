@@ -14,8 +14,8 @@ source:
   #git_url: https://github.com/openfast/openfast.git
   #git_rev: v{{ version }}
   #git_depth: 1 # (Defaults to -1/not shallow)
-  #patches:
-  #  - version.patch
+  patches:
+    - wavetank_implicit.patch
 
 build:
   number: 0
