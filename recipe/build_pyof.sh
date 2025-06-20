@@ -1,4 +1,5 @@
 #!/bin/bash
 
-${PYTHON} -m pip install --no-deps --no-build-isolation -vv ./glue_codes/python/
+cd glue_codes/python
+${PYTHON} -m pip install --no-deps --no-build-isolation -vv .
 
