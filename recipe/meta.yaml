@@ -1,21 +1,21 @@
 {% set name = "openfast" %}
-{% set version = "4.0.5" %}
+{% set version = "4.1.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-    # See https://conda-forge.org/docs/maintainer/adding_pkgs/#source
-    # conda-forge requests tar-ball urls instead of git actions for source
-    # Use `openssl sha256 file.tar.gz` to get sha256 stamp
+  # See https://conda-forge.org/docs/maintainer/adding_pkgs/#source
+  # conda-forge requests tar-ball urls instead of git actions for source
+  # Use `openssl sha256 file.tar.gz` to get sha256 stamp
   url: https://github.com/openfast/openfast/archive/v{{ version }}.tar.gz
-  sha256: 422d6f07911607d24e833bc17907c82dca2f88f73ea53b5e8424228728c4a891
-    #git_url: https://github.com/openfast/openfast.git
-    #git_rev: v{{ version }}
-    #git_depth: 1 # (Defaults to -1/not shallow)
-    #patches:
-    #  - version.patch
+  sha256: cf255e4a26be4a3d3fadebb56f7083b3406db89cf06be6afbb50a76c1b82eac9
+  #git_url: https://github.com/openfast/openfast.git
+  #git_rev: v{{ version }}
+  #git_depth: 1 # (Defaults to -1/not shallow)
+  #patches:
+  #  - version.patch
 
 build:
   number: 0
@@ -27,8 +27,8 @@ outputs:
     script: build_of.sh  # [not win]
     script: bld_of.bat  # [win]
     build:
-          #run_exports:
-          #    - {{ pin_subpackage('openfast', max_pin='x.x') }}
+      #run_exports:
+      #    - {{ pin_subpackage('openfast', max_pin='x.x') }}
       missing_dso_whitelist:
         - "*/libopenfastlib.dll"         # [win]
     requirements:
@@ -49,8 +49,8 @@ outputs:
         - openblas           # [not win]
         - libblas            # [win]
         - liblapack          # [win]
-              #- libcblas
-              #- liblapacke    
+        #- libcblas
+        #- liblapacke    
       run:
         - libgomp            # [not osx]
         - llvm-openmp        # [osx]
@@ -76,9 +76,9 @@ outputs:
     script: build_io.sh  # [not win]
     script: bld_io.bat  # [win]
     build:
-          #noarch: python
+      #noarch: python
       skip: true  # [py<311]
-          #script: {{ PYTHON }} -m pip install openfast_io -vv --no-deps --no-build-isolation
+      #script: {{ PYTHON }} -m pip install openfast_io -vv --no-deps --no-build-isolation
     requirements:
       build:
         - cross-python_{{ target_platform }}               # [build_platform != target_platform]
@@ -89,18 +89,46 @@ outputs:
         - hatchling
         - hatch-vcs
         - pip
-              #- {{ pin_subpackage('openfast', exact=True) }}
+        #- {{ pin_subpackage('openfast', exact=True) }}
       run:
         - python       #>={{ python_min }}
         - numpy
         - pandas
         - ruamel_yaml
         - deepdiff
-              #- {{ pin_subpackage('openfast', exact=True) }}
+        #- {{ pin_subpackage('openfast', exact=True) }}
 
     test:
       imports:
         - openfast_io
+      requires:
+        - python {{ python_min }}
+
+  - name: pyopenfast
+    version: {{ version }}
+    script: build_pyof.sh  # [not win]
+    script: bld_pyof.bat  # [win]
+    build:
+      #noarch: python
+      skip: true  # [py<311]
+      #script: {{ PYTHON }} -m pip install openfast_io -vv --no-deps --no-build-isolation
+    requirements:
+      build:
+        - cross-python_{{ target_platform }}               # [build_platform != target_platform]
+        - python                                           # [build_platform != target_platform]
+      host:
+        - python       #{{ python_min }}
+        - setuptools
+        - pip
+        #- {{ pin_subpackage('openfast', exact=True) }}
+      run:
+        - python       #>={{ python_min }}
+        - numpy
+        #- {{ pin_subpackage('openfast', exact=True) }}
+
+    test:
+      imports:
+        - pyOpenFAST
       requires:
         - python {{ python_min }}
 
