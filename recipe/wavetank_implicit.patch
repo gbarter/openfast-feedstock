@@ -1,16 +1,8 @@
 diff --git a/glue-codes/labview/src/WaveTank.f90 b/glue-codes/labview/src/WaveTank.f90
-index d7edd11a2..3e2671d5e 100644
+index d7edd11a2..7be10ee85 100644
 --- a/glue-codes/labview/src/WaveTank.f90
 +++ b/glue-codes/labview/src/WaveTank.f90
-@@ -51,13 +51,14 @@ SUBROUTINE WaveTank_Init(   &
-     ErrStat_c,              &
-     ErrMsg_c                &
- ) BIND (C, NAME='WaveTank_Init')
-+
-+IMPLICIT NONE
-+ 
- #ifndef IMPLICIT_DLLEXPORT
- !DEC$ ATTRIBUTES DLLEXPORT :: WaveTank_Init
+@@ -56,8 +56,6 @@ SUBROUTINE WaveTank_Init(   &
  !GCC$ ATTRIBUTES DLLEXPORT :: WaveTank_Init
  #endif
  
@@ -19,15 +11,7 @@ index d7edd11a2..3e2671d5e 100644
  CHARACTER(KIND=C_CHAR), INTENT(IN   ), TARGET :: MD_InputFile_c(IntfStrLen)
  CHARACTER(KIND=C_CHAR), INTENT(IN   ), TARGET :: SS_InputFile_c(IntfStrLen)
  CHARACTER(KIND=C_CHAR), INTENT(IN   ), TARGET :: AD_InputFile_c(IntfStrLen)
-@@ -188,13 +189,14 @@ SUBROUTINE WaveTank_CalcOutput( &
-     ErrStat_c,                  &
-     ErrMsg_c                    &
- ) BIND (C, NAME='WaveTank_CalcOutput')
-+
-+IMPLICIT NONE
-+
- #ifndef IMPLICIT_DLLEXPORT
- !DEC$ ATTRIBUTES DLLEXPORT :: WaveTank_CalcOutput
+@@ -193,8 +191,6 @@ SUBROUTINE WaveTank_CalcOutput( &
  !GCC$ ATTRIBUTES DLLEXPORT :: WaveTank_CalcOutput
  #endif
  
