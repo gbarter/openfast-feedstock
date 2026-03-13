@@ -1,4 +1,4 @@
-{% set version = "4.2.1" %}
+{% set version = "5.0.0" %}
 
 package:
   name: openfast-split
@@ -9,7 +9,7 @@ source:
   # conda-forge requests tar-ball urls instead of git actions for source
   # Use `openssl sha256 file.tar.gz` to get sha256 stamp
   url: https://github.com/openfast/openfast/archive/v{{ version }}.tar.gz
-  sha256: 9d8f824e87c2504ba18cb9b8c4dd1c783f8d1fe84f1c27823bc12888a12345d3
+  sha256: f84793e7e6e8e5c6b995f8c8727c5104f3f8d3729ea2aae095b86d770e60063a
   #git_url: https://github.com/openfast/openfast.git
   #git_rev: v{{ version }}
   #git_depth: 1 # (Defaults to -1/not shallow)
