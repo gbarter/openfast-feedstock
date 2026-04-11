@@ -11,7 +11,7 @@ Summary: OpenFAST whole turbine simulation tool
 
 Development: https://github.com/openfast/openfast
 
-Documentation: http://openfast.readthedocs.io
+Documentation: http://openfast.readthedocs.io/
 
 NREL-supported OpenFAST whole-turbine simulation code
 
