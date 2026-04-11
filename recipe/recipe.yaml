@@ -1,0 +1,155 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/prefix-dev/recipe-format/main/schema.json
+schema_version: 1
+
+context:
+  version: "5.0.0"
+
+recipe:
+  name: openfast-split
+  version: ${{ version }}
+
+source:
+  url: https://github.com/openfast/openfast/archive/v{{ version }}.tar.gz
+  sha256: f84793e7e6e8e5c6b995f8c8727c5104f3f8d3729ea2aae095b86d770e60063a
+
+build:
+  number: 1
+
+outputs:
+  - package:
+      name: openfast
+    build:
+      script:
+        - if: win
+          then: build_of.bat
+        - if: not win
+          then: build_of.sh
+    requirements:
+      build:
+        - if: not win
+          then:
+            - ${{ stdlib('c') }}
+            - ${{ compiler('c') }}
+            - ${{ compiler('cxx') }}
+            - ${{ compiler('fortran') }}
+        - if: win
+          then:
+            - ${{ compiler('m2w64_fortran') }}
+            - ${{ compiler('m2w64_c') }}
+            - ${{ compiler('m2w64_cxx') }}
+        - cmake
+        - ninja
+      host:
+        - if: not win
+          then:
+            - openblas
+        - if: win
+          then:
+            - libblas
+            - liblapack
+        - if: not osx
+          then:
+            - libgomp
+        - if: osx
+          then:
+            - llvm-openmp
+      run:
+        - if: not osx
+          then:
+            - libgomp
+        - if: osx
+          then:
+            - llvm-openmp
+    tests:
+      - script:
+        #- aerodisk_driver -h
+        - aerodyn_driver -h
+        #- beamdyn_driver -h
+        - FAST.Farm -h
+        - hydrodyn_driver -h
+        #- inflowwind_driver -h
+        - moordyn_driver -h
+        - openfast -h
+        - seastate_driver -h
+        #- sed_driver -h
+        - servodyn_driver -h
+        #- subdyn_driver -h
+        - turbsim -h
+
+  - package:
+      name: openfast-io
+    build:
+      skip:
+        - ${{ true if match(python, "<3.11") }}
+      script:
+        - if: win
+          then: build_io.bat
+        - if: not win
+          then: build_io.sh
+    requirements:
+      build:
+        - if: build_platform != target_platform
+          then:
+            - python
+            - cross-python_${{ target_platform }}
+      host:
+        - python
+        - setuptools
+        - hatchling
+        - hatch-vcs
+        - pip
+      run:
+        - python
+        - numpy
+        - pandas
+        - ruamel.yaml
+        - deepdiff
+    tests:
+      - python:
+          imports: openfast_io
+          pip_check: false
+
+  - package:
+      name: pyopenfast
+    build:
+      skip:
+        - ${{ true if match(python, "<3.11") }}
+      script:
+        - if: win
+          then: build_pyof.bat
+        - if: not win
+          then: build_pyof.sh
+    requirements:
+      build:
+        - if: build_platform != target_platform
+          then:
+            - python
+            - cross-python_${{ target_platform }}
+      host:
+        - python
+        - setuptools
+        - pip
+      run:
+        - python
+        - numpy
+    tests:
+      - python:
+          imports: pyOpenFAST
+          pip_check: false
+
+about:
+  license: Apache-2.0
+  license_file: LICENSE
+  summary: OpenFAST whole turbine simulation tool
+  description: NREL-supported OpenFAST whole-turbine simulation code
+  homepage: https://github.com/openfast/openfast
+  repository: https://github.com/openfast/openfast
+  documentation: http://openfast.readthedocs.io
+
+extra:
+  feedstock-name: openfast
+  recipe-maintainers:
+    - deslaughter
+    - gbarter
+    - andrew-platt
+    
